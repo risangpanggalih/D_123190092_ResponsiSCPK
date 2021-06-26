@@ -114,15 +114,16 @@ for i=1:m,
  V(i)= sum(w.*R(i,:));
 end;
 
-Vtranspose=V.';
-Vtranspose=num2cell(Vtranspose);
+VT=V.';
+VT=num2cell(VT);
 opts = detectImportOptions('no2.xlsx');
 opts.SelectedVariableNames = (2);
 x2= readtable('no2.xlsx',opts);
 x2 = table2cell(x2);
-x2=[x2 Vtranspose];
+x2=[x2 VT];
 x2=sortrows(x2,-2);
 x2 = x2(:,1);
 
 set(handles.uitable2, 'data', x2);
+
 ```
